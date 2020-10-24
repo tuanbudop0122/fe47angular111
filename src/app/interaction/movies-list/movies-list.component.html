@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-sm-4" *ngFor="let movie of movieList">
+    <app-movies-item
+      [movie]="movie"
+      (selectMovie)="viewDetail($event)"
+    ></app-movies-item>
+  </div>
+</div>

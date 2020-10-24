@@ -1,0 +1,91 @@
+<!-- *ngIf dùng để ẩn hiện component theo điều kiện -->
+<p *ngIf="isShowing">Hi,</p>
+<button (click)="isShowing = !isShowing" class="btn btn-success">Toggle</button>
+<br />
+<br />
+<br />
+<div *ngIf="isLoggedIn; else login">
+  <h3>Hello</h3>
+  <button class="btn btn-danger" (click)="isLoggedIn = false">Đăng xuất</button>
+</div>
+<!-- cách 1 -->
+<!-- <div *ngIf="!isLoggedIn">
+  <h3>Bạn chưa đăng nhập</h3>
+  <button class="btn btn-primary" (click)="isLoggedIn = true">Đăng nhập</button>
+</div> -->
+
+<!-- cách 2 : dùng else -->
+<!-- những gì nằm trong ng-template mặc định sẽ không được hiện thị ra giao diện, 
+    nó chỉ được hiện thị ra khi được gọi tới bằng  -->
+<ng-template #login>
+  <div>
+    <h3>Bạn chưa đăng nhập</h3>
+    <button class="btn btn-primary" (click)="isLoggedIn = true">
+      Đăng nhập
+    </button>
+  </div>
+</ng-template>
+<br />
+<br />
+<br />
+<!-- ngSwitch: ẩn hiện componenet hoặc view theo nhiều điều kiện -->
+
+<div [ngSwitch]="color">
+  <!-- *ngSwichCase="red" => red là biến. muốn chuyển biến thằng chuỗi thì thêm dấu '' -->
+  <div *ngSwitchCase="'red'" style="color: red">Màu đỏ</div>
+  <div *ngSwitchCase="'blue'" style="color: blue">Màu xanh</div>
+  <div *ngSwitchCase="'yellow'" style="color: yellow">Màu vàng</div>
+  <div *ngSwitchCase="'orange'" style="color: orange">Màu cam</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+<select [value]="color" (change)="color = $event.target.value">
+  <option value="red">Red</option>
+  <option value="blue">Blue</option>
+  <option value="yellow">Yellow</option>
+  <option value="orange">Orange</option>
+  <option value="">Default</option>
+</select>
+
+<!-- ngFor: duyệt mảng trong html -->
+<br />
+<br />
+<br />
+<ng-container *ngIf="dSachSV">
+  <p *ngFor="let sv of dSachSV; let index = index">
+    STT:{{ index + 1 }} Họ tên:{{ sv.hoTen }} - Lớp:{{ sv.lop }}
+  </p>
+</ng-container>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Họ Tên</th>
+      <th>Lớp</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let sv of dSachSV; let index = index">
+    <tr>
+      <td>{{ index + 1 }}</td>
+      <td scope="row">{{ sv.hoTen }}</td>
+      <td>{{ sv.lop }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ng-container + ng-template -->
+<ng-template #layoutTemplate>
+  <p style="color: red">Đây là layout được lặp lại nhiều lần</p>
+</ng-template>
+<ng-container *ngTemplateOutlet="layoutTemplate"></ng-container>
+<ng-container *ngTemplateOutlet="layoutTemplate"></ng-container>
+
+<!-- ng-content -->
+<app-card>
+  <div slot="header">Sinh Viên</div>
+  <div slot="content">
+    <p>Họ tên : Tuấn</p>
+    <p>Lớp 1</p>
+  </div>
+  <div slot="footer"><button class="btn btn-secondary">Chi tiêt</button></div>
+</app-card>

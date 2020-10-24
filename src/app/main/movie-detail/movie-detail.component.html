@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- loading -->
+    <div *ngIf="loading" class="row">
+        <div class="col-sm-12 text-center">
+            <div class="spinner-border"></div>
+            Loading
+        </div>
+    </div>
+     <!-- error -->
+     <div *ngIf="error" class="row">
+        <div class="col-sm-12 text-center">
+            {{error || "some error occurred."}}
+        </div>
+    </div>
+    <!-- data -->
+    <div *ngIf="movieDetail"  class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <img class="card-img-top" [src]="movieDetail.hinhAnh" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{movieDetail.tenPhim}}</h4>
+                <p class="card-text">{{movieDetail.moTa}}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+   

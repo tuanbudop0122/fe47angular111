@@ -1,0 +1,14 @@
+<div class="card">
+  <img
+    class="card-img-top"
+    width="100%"
+    height="200px"
+    [src]="movie.hinhAnh"
+    alt=""
+  />
+  <div class="card-body">
+    <h4 class="card-title">Tên : {{ movie.tenPhim }}</h4>
+    <p class="card-text">Giá: {{ movie.gia }}</p>
+    <button class="btn btn-success" (click)="viewDetail()">Chi Tiết</button>
+  </div>
+</div>

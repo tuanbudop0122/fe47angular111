@@ -1,0 +1,9 @@
+<div *ngIf="movieDetail" class="row">
+  <div class="col-sm-6">
+    <img [src]="movieDetail.hinhAnh" width="300px" height="300px" alt="" />
+  </div>
+  <div class="col-sm-6">
+    <h1>Tên: {{ movieDetail.tenPhim }}</h1>
+    <p>rating:{{ movieDetail.rating }}</p>
+  </div>
+</div>

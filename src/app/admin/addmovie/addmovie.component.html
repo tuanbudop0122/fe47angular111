@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="text-center">Thêm phim</h1>
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <form [formGroup]="form" (ngSubmit)="handleAddMovie()" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Tên phim</mat-label>
+          <input matInput formControlName="tenPhim" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Bí Danh</mat-label>
+          <input matInput formControlName="biDanh" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Trailer</mat-label>
+          <input matInput formControlName="trailer" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>mô tả</mat-label>
+          <input matInput formControlName="moTa" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>ngày khỏi chiếu</mat-label>
+          <input matInput formControlName="ngayKhoiChieu" />
+        </mat-form-field>
+      
+        <div>
+          <button type="button" mat-raised-button color="primary" (click)="hinhAnh.click()">
+            File
+          </button>
+          <img *ngIf="imgPreview" [src]="imgPreview" alt="">
+          <input hidden type="file" (change)="handleChangeFile($event)" #hinhAnh />
+        </div>
+        <!-- <mat-form-field class="example-full-width">
+                    <mat-label>Hình Ảnh</mat-label>
+                    <input matInput  formControlName="hinhAnh">
+                  </mat-form-field> -->
+        <div>
+          <button mat-flat-button color="accent" type="submit">
+            thêm phim
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

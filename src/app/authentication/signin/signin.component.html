@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <h1>Đăng nhập</h1>
+      <form [formGroup]="signinForm" (ngSubmit)="xuLyDangNhap()">
+        <div class="form-group">
+          <label for="taiKhoan">Tài Khoản</label>
+          <input type="text"  id="taiKhoan" class="form-control"
+          formControlName="taiKhoan"
+          />
+          <div  *ngIf="signinForm.get('taiKhoan').invalid &&
+          (signinForm.get('taiKhoan').touched || 
+          signinForm.get('taiKhoan').dirty)" class="alert alert-danger">
+          <span *ngIf="signinForm.get('taiKhoan').errors.required">
+              Tài Khoản không được để trống
+          </span>
+          <span *ngIf="signinForm.get('taiKhoan').errors.minlength || signinForm.get('taiKhoan').errors.maxlength">
+           Tài khoản từ 3-20 ký tự
+       </span>
+         </div>
+        </div>
+        <div class="form-group">
+          <label for="">Mật Khẩu</label>
+          <input type="password" id="matKhau" formControlName="matKhau" class="form-control" />
+          <div  *ngIf="signinForm.get('matKhau').invalid &&
+           (signinForm.get('matKhau').touched || 
+           signinForm.get('matKhau').dirty)" class="alert alert-danger">
+           <span *ngIf="signinForm.get('matKhau').errors.required">
+               Mật Khẩu không được để trống
+           </span>
+         
+          </div>
+        </div>
+        <button  type="submit" class="btn btn-success">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  height: 200px;
+}
+.content {
+  width: 70%;
+  background-color: blue;
+  color: wheat;
+  font-size: 100px;
+  text-align: center;
+}
+.sidebar {
+  width: 30%;
+  background-color: orange;
+  color: wheat;
+  font-size: 100px;
+  text-align: center;
+}

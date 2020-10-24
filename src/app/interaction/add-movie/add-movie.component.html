@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label for="">Tên phim</label>
+  <input type="text" #tenPhim class="form-control" />
+</div>
+<div class="form-group">
+  <label for="">Giá</label>
+  <input type="text" #gia class="form-control" />
+</div>
+<div class="form-group">
+  <label for="">Hình Ảnh</label>
+  <input type="text" #hinhAnh class="form-control" />
+</div>
+<button
+  (click)="themPhim(tenPhim.value, gia.value, hinhAnh.value)"
+  class="btn btn-success"
+>
+  Thêm Phim
+</button>

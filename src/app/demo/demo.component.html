@@ -1,0 +1,44 @@
+<!-- Interpolation -->
+<h1>{{ message }}</h1>
+
+<!-- Property binding  -->
+<input [placeholder]="search" />
+<button [disabled]="disabled" class="btn btn-success">Click</button>
+
+<!-- Event binding -->
+<br />
+<br />
+<!-- //gọi hàm ở file ts -->
+<button (click)="changeMessage('i am from Go Vap')" class="btn btn-success">
+  Change Message
+</button>
+<!-- Sửa khi click nút button -->
+<br />
+<br />
+<br />
+<br />
+<p>{{ username }}</p>
+<!-- #name => dom tới ô input -->
+<input type="text" #name />
+<button (click)="changeUsername(name)">Change username</button>
+
+<!-- Sửa trực tiếp ở ô input -->
+
+<br />
+<br />
+<br />
+<br />
+<p>{{ email }}</p>
+<input type="text" (input)="changeEmail($event)" />
+<!-- $event => bắt buộc -->
+
+<!-- Two-way binding -->
+<br />
+<br />
+<br />
+<br />
+<p>{{ address }}</p>
+<input type="text" [(ngModel)]="address" />
+<!-- import FromModule mới sử dụng được ngModel -->
+
+<!-- Bài tập -->
